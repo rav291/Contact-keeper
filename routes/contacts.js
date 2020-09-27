@@ -12,7 +12,7 @@ const Contact = require('../models/Contact')
 router.get('/', auth, async (req, res) => {
     try {
         const contacts = await Contact.find({ user: req.user.id }).sort({ date: -1 }) // Confusion?? user isfetched by it's id
-        res.json(contacts);            // .find is mongoose method
+        res.json(contacts);            // .find is mongoose method, date -1 sorts with recent contact as first.
     } catch (err) {
         console.error(err.message);
         res.status(500).send('Internal Server Error')
