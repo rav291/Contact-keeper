@@ -7,13 +7,13 @@ const ContactFilter = () => {
 
     const { filterContacts, clearFilter, filtered } = contactContext;
 
-    // We are using useRef hook here...
+    // We are using useRef hook here, to use text as a reference...
     const text = useRef('');
 
     useEffect(() => {
         if (filtered === null)
             text.current.value = ''; // Not really needed | Dosen't break the app
-    }, [ filtered ])
+    }, [filtered])
 
     const onChange = (e) => {
         if (text.current.value !== '') // text is used as a reference variable .. We can also use e.target.value here...
